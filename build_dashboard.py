@@ -66,23 +66,33 @@ for proj in projects:
 
     df_p = df_summary[df_summary["Project"] == proj]
 
-    # Write raw data for project
-    for r in dataframe_to_rows(df_p, index=False, header=True):
-        ws2.append(r)
+    # Pivot theo Category và Snapshot
+    pivot = df_p.pivot_table(index="Category",
+                             columns="Snapshot",
+                             values="Count",
+                             aggfunc="sum").reset_index()
 
-    # BAR CHART compare first vs last
+    # Ghi bảng pivot vào sheet
+    ws2.append(["Category", "first", "last"])
+    for row in pivot.itertuples(index=False):
+        ws2.append(list(row))
+
+    # Tạo bar chart compare
     chart = BarChart()
-    chart.title = f"{proj} - Snapshot Comparison"
-    chart.x_axis.title = "Category"
+    chart.type = "col"
+    chart.title = f"{proj} – First vs Last Snapshot"
     chart.y_axis.title = "Count"
+    chart.x_axis.title = "Category"
 
-    # Data range
-    data_ref = Reference(ws2, min_col=4, min_row=1, max_col=4, max_row=len(df_p)+1)
-    cat_ref = Reference(ws2, min_col=3, min_row=2, max_row=len(df_p)+1)
+    # Data cho chart
+    data = Reference(ws2, min_col=2, max_col=3, min_row=1, max_row=len(pivot)+1)
+    cats = Reference(ws2, min_col=1, min_row=2, max_row=len(pivot)+1)
 
-    chart.add_data(data_ref, titles_from_data=True)
-    chart.set_categories(cat_ref)
-    ws2.add_chart(chart, "H2")
+    chart.add_data(data, titles_from_data=True)
+    chart.set_categories(cats)
+    chart.shape = 4
+
+    ws2.add_chart(chart, "G2")
 
 wb.save(OUTPUT)
 
