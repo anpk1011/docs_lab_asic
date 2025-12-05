@@ -4,7 +4,7 @@ PROJECT: Client (10009)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID  Classification  Component  Action  Count
+CID  Classification  Component  Action  Count  Category
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID  Classification  Action  Component  Category  Count
@@ -14,33 +14,33 @@ PROJECT: crm-test (10008)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID    Classification  Component  Action     Count
-10277  Unclassified    Other      Undecided  1
-10276  Unclassified    Other      Undecided  1
-10275  Unclassified    Other      Undecided  1
-10274  Unclassified    Other      Undecided  1
-10273  Unclassified    Other      Undecided  1
-10272  Unclassified    Other      Undecided  1
-10271  Unclassified    Other      Undecided  1
-10270  Unclassified    Other      Undecided  1
-10269  Unclassified    Other      Undecided  1
-10268  Unclassified    Other      Undecided  1
-10267  Unclassified    Other      Undecided  1
-10266  Unclassified    Other      Undecided  1
-10265  Unclassified    Other      Undecided  1
-10264  Unclassified    Other      Undecided  1
-10263  Unclassified    Other      Undecided  1
-10262  Unclassified    Other      Undecided  1
-10261  Unclassified    Other      Undecided  1
-10260  Unclassified    Other      Undecided  1
-10259  Unclassified    Other      Undecided  1
-10258  Unclassified    Other      Undecided  1
-10257  Unclassified    Other      Undecided  1
-10256  Unclassified    Other      Undecided  1
-10255  Unclassified    Other      Undecided  1
-10254  Unclassified    Other      Undecided  1
-10253  Unclassified    Other      Undecided  1
-10252  Unclassified    Other      Undecided  1
+CID    Classification  Component  Action     Count  Category          
+10277  Unclassified    Other      Undecided  1      High      impact  security
+10276  Unclassified    Other      Undecided  1      High      impact  security
+10275  Unclassified    Other      Undecided  1      Sigma             
+10274  Unclassified    Other      Undecided  1      High      impact  security
+10273  Unclassified    Other      Undecided  1      Sigma             
+10272  Unclassified    Other      Undecided  1      Medium    impact  security
+10271  Unclassified    Other      Undecided  1      High      impact  security
+10270  Unclassified    Other      Undecided  1      Medium    impact  security
+10269  Unclassified    Other      Undecided  1      High      impact  security
+10268  Unclassified    Other      Undecided  1      High      impact  security
+10267  Unclassified    Other      Undecided  1      High      impact  security
+10266  Unclassified    Other      Undecided  1      High      impact  security
+10265  Unclassified    Other      Undecided  1      High      impact  security
+10264  Unclassified    Other      Undecided  1      High      impact  security
+10263  Unclassified    Other      Undecided  1      Low       impact  security
+10262  Unclassified    Other      Undecided  1      High      impact  security
+10261  Unclassified    Other      Undecided  1      Sigma             
+10260  Unclassified    Other      Undecided  1      High      impact  security
+10259  Unclassified    Other      Undecided  1      Low       impact  security
+10258  Unclassified    Other      Undecided  1      High      impact  security
+10257  Unclassified    Other      Undecided  1      Sigma             
+10256  Unclassified    Other      Undecided  1      High      impact  security
+10255  Unclassified    Other      Undecided  1      High      impact  security
+10254  Unclassified    Other      Undecided  1      High      impact  security
+10253  Unclassified    Other      Undecided  1      Low       impact  security
+10252  Unclassified    Other      Undecided  1      High      impact  security
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID    Classification  Action     Component  Category  Count                   
@@ -90,7 +90,7 @@ PROJECT: Developer Streams (10001)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID  Classification  Component  Action  Count
+CID  Classification  Component  Action  Count  Category
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID  Classification  Action  Component  Category  Count
@@ -100,32 +100,28 @@ PROJECT: jenkins (10010)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID    Classification  Component  Action     Count      
-10314  Unclassified    Other      Fix        Submitted  1
-10313  Unclassified    Other      Fix        Submitted  1
-10312  Unclassified    Other      Undecided  1          
-10311  Unclassified    Other      Undecided  1          
-10310  Unclassified    Other      Undecided  1          
-10309  Unclassified    Other      Undecided  1          
-10308  Unclassified    Other      Undecided  1          
-10307  Unclassified    Other      Undecided  1          
-10307  Unclassified    Other      Undecided  1          
-10306  Unclassified    Other      Undecided  1          
-10305  Unclassified    Other      Undecided  1          
-10304  Unclassified    Other      Undecided  1          
-10303  Unclassified    Other      Undecided  1          
-10302  Unclassified    Other      Undecided  1          
-10301  Unclassified    Other      Undecided  1          
-10300  Unclassified    Other      Undecided  1          
-10299  Unclassified    Other      Undecided  1          
-10298  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10296  Unclassified    Other      Undecided  1          
-10295  Unclassified    Other      Undecided  1          
-10032  Unclassified    Other      Fix        Submitted  1
+CID    Classification  Component  Action     Count      Category                    
+10314  Unclassified    Other      Fix        Submitted  1         Sigma             
+10313  Unclassified    Other      Fix        Submitted  1         High    impact    security
+10312  Unclassified    Other      Undecided  1          Sigma                       
+10311  Unclassified    Other      Undecided  1          Sigma                       
+10310  Unclassified    Other      Undecided  1          Sigma                       
+10309  Unclassified    Other      Undecided  1          Sigma                       
+10308  Unclassified    Other      Undecided  1          Sigma                       
+10307  Unclassified    Other      Undecided  2          Medium    impact  security  
+10306  Unclassified    Other      Undecided  1          High      impact  security  
+10305  Unclassified    Other      Undecided  1          Sigma                       
+10304  Unclassified    Other      Undecided  1          Sigma                       
+10303  Unclassified    Other      Undecided  1          Sigma                       
+10302  Unclassified    Other      Undecided  1          Sigma                       
+10301  Unclassified    Other      Undecided  1          Sigma                       
+10300  Unclassified    Other      Undecided  1          Medium    impact  security  
+10299  Unclassified    Other      Undecided  1          Sigma                       
+10298  Unclassified    Other      Undecided  1          Sigma                       
+10297  Unclassified    Other      Undecided  4          Sigma                       
+10296  Unclassified    Other      Undecided  1          Medium    impact  security  
+10295  Unclassified    Other      Undecided  1          Sigma                       
+10032  Unclassified    Other      Fix        Submitted  1         Sigma             
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID    Classification  Action     Component  Category  Count                       
@@ -156,35 +152,32 @@ PROJECT: online-shop-backend (10003)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID    Classification  Component  Action     Count      
-10037  Bug             Other      Fix        Submitted  1
-10036  Unclassified    Other      Undecided  1          
-10036  Unclassified    Other      Undecided  1          
-10036  Unclassified    Other      Undecided  1          
-10035  Unclassified    Other      Undecided  1          
-10034  Unclassified    Other      Undecided  1          
-10033  Unclassified    Other      Undecided  1          
-10032  Unclassified    Other      Fix        Submitted  1
-10031  Unclassified    Other      Undecided  1          
-10030  Unclassified    Other      Undecided  1          
-10029  Unclassified    Other      Undecided  1          
-10028  Unclassified    Other      Undecided  1          
-10027  Unclassified    Other      Undecided  1          
-10026  Unclassified    Other      Undecided  1          
-10025  Unclassified    Other      Undecided  1          
-10024  Unclassified    Other      Undecided  1          
-10023  Unclassified    Other      Undecided  1          
-10022  Unclassified    Other      Undecided  1          
-10021  Unclassified    Other      Undecided  1          
-10020  Unclassified    Other      Undecided  1          
-10019  Unclassified    Other      Undecided  1          
-10018  Unclassified    Other      Undecided  1          
-10017  Unclassified    Other      Undecided  1          
-10016  Unclassified    Other      Undecided  1          
-10016  Unclassified    Other      Undecided  1          
-10015  Unclassified    Other      Undecided  1          
-10014  Unclassified    Other      Undecided  1          
-10013  Unclassified    Other      Undecided  1          
+CID    Classification  Component  Action     Count      Category                         
+10037  Bug             Other      Fix        Submitted  1            High      impact    security
+10036  Unclassified    Other      Undecided  3          Sigma                            
+10035  Unclassified    Other      Undecided  1          High         impact    security  
+10034  Unclassified    Other      Undecided  1          High         impact    security  
+10033  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10032  Unclassified    Other      Fix        Submitted  1            Sigma               
+10031  Unclassified    Other      Undecided  1          High         impact    security  
+10030  Unclassified    Other      Undecided  1          High         impact    security  
+10029  Unclassified    Other      Undecided  1          Sigma                            
+10028  Unclassified    Other      Undecided  1          High         impact    security  
+10027  Unclassified    Other      Undecided  1          High         impact    security  
+10026  Unclassified    Other      Undecided  1          High         impact    security  
+10025  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10024  Unclassified    Other      Undecided  1          High         impact    security  
+10023  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10022  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10021  Unclassified    Other      Undecided  1          High         impact    security  
+10020  Unclassified    Other      Undecided  1          High         impact    security  
+10019  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10018  Unclassified    Other      Undecided  1          Exceptional  resource  leaks     
+10017  Unclassified    Other      Undecided  1          High         impact    security  
+10016  Unclassified    Other      Undecided  2          Sigma                            
+10015  Unclassified    Other      Undecided  1          High         impact    security  
+10014  Unclassified    Other      Undecided  1          High         impact    security  
+10013  Unclassified    Other      Undecided  1          High         impact    security  
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID    Classification  Action     Component  Category     Count                         
@@ -219,10 +212,10 @@ PROJECT: todo-go (10002)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID    Classification  Component  Action     Count
-10003  Unclassified    Other      Undecided  1
-10002  Unclassified    Other      Undecided  1
-10001  Unclassified    Other      Undecided  1
+CID    Classification  Component  Action     Count  Category          
+10003  Unclassified    Other      Undecided  1      Medium    impact  security
+10002  Unclassified    Other      Undecided  1      Low       impact  security
+10001  Unclassified    Other      Undecided  1      Low       impact  security
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID    Classification  Action     Component  Category  Count             
@@ -234,148 +227,117 @@ PROJECT: webgoat (10004)
 ===============================
 
 --- VIEW: RPT_2025 first snapshot view (10099) ---
-CID    Classification  Component  Action     Count      
-10314  Unclassified    Other      Fix        Submitted  1
-10313  Unclassified    Other      Fix        Submitted  1
-10312  Unclassified    Other      Undecided  1          
-10311  Unclassified    Other      Undecided  1          
-10310  Unclassified    Other      Undecided  1          
-10309  Unclassified    Other      Undecided  1          
-10308  Unclassified    Other      Undecided  1          
-10307  Unclassified    Other      Undecided  1          
-10307  Unclassified    Other      Undecided  1          
-10306  Unclassified    Other      Undecided  1          
-10305  Unclassified    Other      Undecided  1          
-10304  Unclassified    Other      Undecided  1          
-10303  Unclassified    Other      Undecided  1          
-10302  Unclassified    Other      Undecided  1          
-10301  Unclassified    Other      Undecided  1          
-10300  Unclassified    Other      Undecided  1          
-10299  Unclassified    Other      Undecided  1          
-10298  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10297  Unclassified    Other      Undecided  1          
-10296  Unclassified    Other      Undecided  1          
-10295  Unclassified    Other      Undecided  1          
-10126  Unclassified    Other      Undecided  1          
-10126  Unclassified    Other      Undecided  1          
-10125  Unclassified    Other      Undecided  1          
-10125  Unclassified    Other      Undecided  1          
-10124  Unclassified    Other      Undecided  1          
-10123  Unclassified    Other      Undecided  1          
-10122  Unclassified    Other      Undecided  1          
-10121  Unclassified    Other      Undecided  1          
-10120  Unclassified    Other      Undecided  1          
-10119  Unclassified    Other      Undecided  1          
-10119  Unclassified    Other      Undecided  1          
-10118  Unclassified    Other      Undecided  1          
-10117  Unclassified    Other      Undecided  1          
-10116  Unclassified    Other      Undecided  1          
-10115  Unclassified    Other      Undecided  1          
-10114  Unclassified    Other      Undecided  1          
-10113  Unclassified    Other      Undecided  1          
-10112  Unclassified    Other      Undecided  1          
-10112  Unclassified    Other      Undecided  1          
-10111  Unclassified    Other      Undecided  1          
-10110  Unclassified    Other      Undecided  1          
-10109  Unclassified    Other      Undecided  1          
-10108  Unclassified    Other      Undecided  1          
-10107  Unclassified    Other      Undecided  1          
-10106  Unclassified    Other      Undecided  1          
-10105  Unclassified    Other      Undecided  1          
-10104  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10103  Unclassified    Other      Undecided  1          
-10102  Unclassified    Other      Undecided  1          
-10101  Unclassified    Other      Undecided  1          
-10100  Unclassified    Other      Undecided  1          
-10099  Unclassified    Other      Undecided  1          
-10098  Unclassified    Other      Undecided  1          
-10098  Unclassified    Other      Undecided  1          
-10098  Unclassified    Other      Undecided  1          
-10097  Unclassified    Other      Undecided  1          
-10096  Unclassified    Other      Undecided  1          
-10095  Unclassified    Other      Undecided  1          
-10094  Unclassified    Other      Undecided  1          
-10093  Unclassified    Other      Undecided  1          
-10092  Unclassified    Other      Undecided  1          
-10092  Unclassified    Other      Undecided  1          
-10091  Unclassified    Other      Undecided  1          
-10090  Unclassified    Other      Undecided  1          
-10089  Unclassified    Other      Undecided  1          
-10088  Unclassified    Other      Undecided  1          
-10087  Unclassified    Other      Undecided  1          
-10086  Unclassified    Other      Undecided  1          
-10085  Unclassified    Other      Undecided  1          
-10085  Unclassified    Other      Undecided  1          
-10084  Unclassified    Other      Undecided  1          
-10083  Unclassified    Other      Undecided  1          
-10082  Unclassified    Other      Undecided  1          
-10081  Unclassified    Other      Undecided  1          
-10080  Unclassified    Other      Undecided  1          
-10079  Unclassified    Other      Undecided  1          
-10078  Unclassified    Other      Undecided  1          
-10078  Unclassified    Other      Undecided  1          
-10077  Unclassified    Other      Undecided  1          
-10077  Unclassified    Other      Undecided  1          
-10076  Unclassified    Other      Undecided  1          
-10075  Unclassified    Other      Undecided  1          
-10075  Unclassified    Other      Undecided  1          
-10074  Unclassified    Other      Undecided  1          
-10073  Unclassified    Other      Undecided  1          
-10072  Unclassified    Other      Undecided  1          
-10071  Unclassified    Other      Undecided  1          
-10070  Unclassified    Other      Undecided  1          
-10070  Unclassified    Other      Undecided  1          
-10069  Unclassified    Other      Undecided  1          
-10068  Unclassified    Other      Undecided  1          
-10068  Unclassified    Other      Undecided  1          
-10067  Unclassified    Other      Undecided  1          
-10066  Unclassified    Other      Undecided  1          
-10065  Unclassified    Other      Undecided  1          
-10064  Unclassified    Other      Undecided  1          
-10063  Unclassified    Other      Undecided  1          
-10063  Unclassified    Other      Undecided  1          
-10062  Unclassified    Other      Undecided  1          
-10061  Unclassified    Other      Undecided  1          
-10061  Unclassified    Other      Undecided  1          
-10061  Unclassified    Other      Undecided  1          
-10060  Unclassified    Other      Undecided  1          
-10060  Unclassified    Other      Undecided  1          
-10059  Unclassified    Other      Undecided  1          
-10058  Unclassified    Other      Undecided  1          
-10057  Unclassified    Other      Undecided  1          
-10056  Unclassified    Other      Undecided  1          
-10056  Unclassified    Other      Undecided  1          
-10055  Unclassified    Other      Undecided  1          
-10054  Unclassified    Other      Undecided  1          
-10053  Unclassified    Other      Undecided  1          
-10052  Unclassified    Other      Undecided  1          
-10051  Unclassified    Other      Undecided  1          
-10050  Unclassified    Other      Undecided  1          
-10049  Unclassified    Other      Undecided  1          
-10048  Unclassified    Other      Undecided  1          
-10047  Unclassified    Other      Undecided  1          
-10046  Unclassified    Other      Undecided  1          
-10045  False           Positive   Other      Undecided  1
-10044  Unclassified    Other      Undecided  1          
-10043  Unclassified    Other      Undecided  1          
-10042  Unclassified    Other      Undecided  1          
-10041  Unclassified    Other      Undecided  1          
-10041  Unclassified    Other      Undecided  1          
-10040  Unclassified    Other      Undecided  1          
-10039  Unclassified    Other      Fix        Submitted  1
-10038  Unclassified    Other      Undecided  1          
-10038  Unclassified    Other      Undecided  1          
-10032  Unclassified    Other      Fix        Submitted  1
+CID    Classification  Component  Action     Count      Category                             
+10314  Unclassified    Other      Fix        Submitted  1          Sigma                     
+10313  Unclassified    Other      Fix        Submitted  1          High        impact        security
+10312  Unclassified    Other      Undecided  1          Sigma                                
+10311  Unclassified    Other      Undecided  1          Sigma                                
+10310  Unclassified    Other      Undecided  1          Sigma                                
+10309  Unclassified    Other      Undecided  1          Sigma                                
+10308  Unclassified    Other      Undecided  1          Sigma                                
+10307  Unclassified    Other      Undecided  2          Medium     impact      security      
+10306  Unclassified    Other      Undecided  1          High       impact      security      
+10305  Unclassified    Other      Undecided  1          Sigma                                
+10304  Unclassified    Other      Undecided  1          Sigma                                
+10303  Unclassified    Other      Undecided  1          Sigma                                
+10302  Unclassified    Other      Undecided  1          Sigma                                
+10301  Unclassified    Other      Undecided  1          Sigma                                
+10300  Unclassified    Other      Undecided  1          Medium     impact      security      
+10299  Unclassified    Other      Undecided  1          Sigma                                
+10298  Unclassified    Other      Undecided  1          Sigma                                
+10297  Unclassified    Other      Undecided  4          Sigma                                
+10296  Unclassified    Other      Undecided  1          Medium     impact      security      
+10295  Unclassified    Other      Undecided  1          Sigma                                
+10126  Unclassified    Other      Undecided  2          Sigma                                
+10125  Unclassified    Other      Undecided  2          Null       pointer     dereferences  
+10124  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10123  Unclassified    Other      Undecided  1          Medium     impact      security      
+10122  Unclassified    Other      Undecided  1          Sigma                                
+10121  Unclassified    Other      Undecided  1          Medium     impact      security      
+10120  Unclassified    Other      Undecided  1          Low        impact      security      
+10119  Unclassified    Other      Undecided  2          Incorrect  expression                
+10118  Unclassified    Other      Undecided  1          Sigma                                
+10117  Unclassified    Other      Undecided  1          Sigma                                
+10116  Unclassified    Other      Undecided  1          Control    flow        issues        
+10115  Unclassified    Other      Undecided  1          Sigma                                
+10114  Unclassified    Other      Undecided  1          Incorrect  expression                
+10113  Unclassified    Other      Undecided  1          Incorrect  expression                
+10112  Unclassified    Other      Undecided  2          Incorrect  expression                
+10111  Unclassified    Other      Undecided  1          Resource   leaks                     
+10110  Unclassified    Other      Undecided  1          Sigma                                
+10109  Unclassified    Other      Undecided  1          Sigma                                
+10108  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10107  Unclassified    Other      Undecided  1          Control    flow        issues        
+10106  Unclassified    Other      Undecided  1          Sigma                                
+10105  Unclassified    Other      Undecided  1          Incorrect  expression                
+10104  Unclassified    Other      Undecided  1          Sigma                                
+10103  Unclassified    Other      Undecided  8          Sigma                                
+10102  Unclassified    Other      Undecided  1          Sigma                                
+10101  Unclassified    Other      Undecided  1          Sigma                                
+10100  Unclassified    Other      Undecided  1          Incorrect  expression                
+10099  Unclassified    Other      Undecided  1          Incorrect  expression                
+10098  Unclassified    Other      Undecided  3          High       impact      security      
+10097  Unclassified    Other      Undecided  1          Sigma                                
+10096  Unclassified    Other      Undecided  1          Incorrect  expression                
+10095  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10094  Unclassified    Other      Undecided  1          Sigma                                
+10093  Unclassified    Other      Undecided  1          Low        impact      security      
+10092  Unclassified    Other      Undecided  2          Sigma                                
+10091  Unclassified    Other      Undecided  1          Sigma                                
+10090  Unclassified    Other      Undecided  1          Sigma                                
+10089  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10088  Unclassified    Other      Undecided  1          Sigma                                
+10087  Unclassified    Other      Undecided  1          Sigma                                
+10086  Unclassified    Other      Undecided  1          Sigma                                
+10085  Unclassified    Other      Undecided  2          Sigma                                
+10084  Unclassified    Other      Undecided  1          Sigma                                
+10083  Unclassified    Other      Undecided  1          Sigma                                
+10082  Unclassified    Other      Undecided  1          Sigma                                
+10081  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10080  Unclassified    Other      Undecided  1          Sigma                                
+10079  Unclassified    Other      Undecided  1          Sigma                                
+10078  Unclassified    Other      Undecided  2          Sigma                                
+10077  Unclassified    Other      Undecided  2          Sigma                                
+10076  Unclassified    Other      Undecided  1          Sigma                                
+10075  Unclassified    Other      Undecided  2          Sigma                                
+10074  Unclassified    Other      Undecided  1          Sigma                                
+10073  Unclassified    Other      Undecided  1          Resource   leaks                     
+10072  Unclassified    Other      Undecided  1          Sigma                                
+10071  Unclassified    Other      Undecided  1          Sigma                                
+10070  Unclassified    Other      Undecided  2          Null       pointer     dereferences  
+10069  Unclassified    Other      Undecided  1          Sigma                                
+10068  Unclassified    Other      Undecided  2          Control    flow        issues        
+10067  Unclassified    Other      Undecided  1          Sigma                                
+10066  Unclassified    Other      Undecided  1          Sigma                                
+10065  Unclassified    Other      Undecided  1          Sigma                                
+10064  Unclassified    Other      Undecided  1          Sigma                                
+10063  Unclassified    Other      Undecided  2          Sigma                                
+10062  Unclassified    Other      Undecided  1          Sigma                                
+10061  Unclassified    Other      Undecided  3          High       impact      security      
+10060  Unclassified    Other      Undecided  2          Sigma                                
+10059  Unclassified    Other      Undecided  1          Sigma                                
+10058  Unclassified    Other      Undecided  1          Incorrect  expression                
+10057  Unclassified    Other      Undecided  1          Sigma                                
+10056  Unclassified    Other      Undecided  2          Sigma                                
+10055  Unclassified    Other      Undecided  1          Sigma                                
+10054  Unclassified    Other      Undecided  1          Sigma                                
+10053  Unclassified    Other      Undecided  1          Sigma                                
+10052  Unclassified    Other      Undecided  1          Sigma                                
+10051  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10050  Unclassified    Other      Undecided  1          Sigma                                
+10049  Unclassified    Other      Undecided  1          Sigma                                
+10048  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10047  Unclassified    Other      Undecided  1          Sigma                                
+10046  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10045  False           Positive   Other      Undecided  1          Sigma                     
+10044  Unclassified    Other      Undecided  1          Null       pointer     dereferences  
+10043  Unclassified    Other      Undecided  1          Sigma                                
+10042  Unclassified    Other      Undecided  1          Control    flow        issues        
+10041  Unclassified    Other      Undecided  2          Sigma                                
+10040  Unclassified    Other      Undecided  1          Sigma                                
+10039  Unclassified    Other      Fix        Submitted  1          Sigma                     
+10038  Unclassified    Other      Undecided  2          Incorrect  expression                
+10032  Unclassified    Other      Fix        Submitted  1          Sigma                     
 
 --- VIEW: RPT_2025 last snapshot view (10100) ---
 CID    Classification  Action     Component  Category  Count                       
