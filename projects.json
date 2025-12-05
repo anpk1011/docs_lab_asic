@@ -1,0 +1,30 @@
+[
+  {
+    "proj_name": "Client",
+    "proj_key": 10009
+  },
+  {
+    "proj_name": "crm-test",
+    "proj_key": 10008
+  },
+  {
+    "proj_name": "Developer Streams",
+    "proj_key": 10001
+  },
+  {
+    "proj_name": "jenkins",
+    "proj_key": 10010
+  },
+  {
+    "proj_name": "online-shop-backend",
+    "proj_key": 10003
+  },
+  {
+    "proj_name": "todo-go",
+    "proj_key": 10002
+  },
+  {
+    "proj_name": "webgoat",
+    "proj_key": 10004
+  }
+]
