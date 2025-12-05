@@ -61,7 +61,7 @@ pie2.add_data(data2, titles_from_data=True)
 pie2.set_categories(labels2)
 ws.add_chart(pie2, "E20")
 
-# --- DETAIL DASHBOARDS ---
+# --- DETAIL DASHBOARDS (Simplified: Total first vs last only) ---
 projects = df_summary["Project"].unique()
 
 for proj in projects:
@@ -69,78 +69,44 @@ for proj in projects:
 
     df_p = df_summary[df_summary["Project"] == proj].copy()
 
-    # Full category list
-    categories = sorted(df_p["Category"].unique())
+    # Total FIRST and LAST
+    total_first = int(df_p[df_p["Snapshot"]=="first"]["Count"].sum())
+    total_last = int(df_p[df_p["Snapshot"]=="last"]["Count"].sum())
+    delta_total = total_last - total_first
 
-    pivot = (
-        df_p.pivot_table(
-            index="Category",
-            columns="Snapshot",
-            values="Count",
-            aggfunc="sum"
-        )
-        .reindex(categories)
-        .fillna(0)
-        .reset_index()
-    )
-
-    # Ensure first/last exist
-    if "first" not in pivot.columns:
-        pivot["first"] = 0
-    if "last" not in pivot.columns:
-        pivot["last"] = 0
-
-    # Delta
-    pivot["Delta"] = pivot["last"] - pivot["first"]
-
-    # KPI box
-    total_first = int(pivot["first"].sum())
-    total_last = int(pivot["last"].sum())
-    total_delta = total_last - total_first
-
+    # KPI BOX
     ws2["A1"] = "Project"
     ws2["B1"] = proj
-    ws2["A2"] = "Total FIRST"
-    ws2["B2"] = total_first
-    ws2["A3"] = "Total LAST"
-    ws2["B3"] = total_last
-    ws2["A4"] = "Delta (LAST - FIRST)"
-    ws2["B4"] = total_delta
 
-    # Table header (row 6)
+    ws2["A3"] = "Total FIRST"
+    ws2["B3"] = total_first
+
+    ws2["A4"] = "Total LAST"
+    ws2["B4"] = total_last
+
+    ws2["A5"] = "Delta (LAST - FIRST)"
+    ws2["B5"] = delta_total
+
+    # Table for chart
     ws2.append([])
-    ws2.append(["Category", "first", "last", "Delta"])
+    ws2.append(["Snapshot", "Count"])
+    ws2.append(["first", total_first])
+    ws2.append(["last", total_last])
 
-    for row in pivot.itertuples(index=False):
-        ws2.append(list(row))
-
-    # Determine table size
-    start_row = 7
-    end_row = start_row + len(pivot) - 1
-
-    # BAR CHART
+    # Bar chart
     bar = BarChart()
     bar.type = "col"
-    bar.title = f"{proj} – First vs Last Snapshot"
-    bar.y_axis.title = "Count"
-    bar.x_axis.title = "Category"
+    bar.title = f"{proj} – Total Defects Comparison"
+    bar.y_axis.title = "Total Defects"
+    bar.x_axis.title = "Snapshot"
 
-    data_ref = Reference(ws2, min_col=2, max_col=3, min_row=start_row, max_row=end_row)
-    cats_ref = Reference(ws2, min_col=1, min_row=start_row+1, max_row=end_row)
-    bar.add_data(data_ref, titles_from_data=True)
+    data_ref = Reference(ws2, min_col=2, min_row=8, max_row=9)
+    cats_ref = Reference(ws2, min_col=1, min_row=8, max_row=9)
+
+    bar.add_data(data_ref, titles_from_data=False)
     bar.set_categories(cats_ref)
-    ws2.add_chart(bar, "G2")
 
-    # RADAR CHART
-    radar = RadarChart()
-    radar.title = f"{proj} – Radar (First vs Last)"
-    radar.style = 26
-
-    r_data = Reference(ws2, min_col=2, max_col=3, min_row=start_row, max_row=end_row)
-    r_cats = Reference(ws2, min_col=1, min_row=start_row+1, max_row=end_row)
-    radar.add_data(r_data, titles_from_data=True)
-    radar.set_categories(r_cats)
-    ws2.add_chart(radar, "G18")
+    ws2.add_chart(bar, "E2")
 
 wb.save(OUTPUT)
 print("DONE →", OUTPUT)
