@@ -20,14 +20,14 @@ with open(INPUT_FILE, "r") as f:
 
         for row in block["rows"]:
             rec = {}
-
-            # MAP lại key đúng chuẩn Coverity
+            
+            # Map
             rec["CID"] = row.get("cid")
             rec["Classification"] = row.get("classification")
             rec["Component"] = row.get("displayComponent")
             rec["Action"] = row.get("action")
 
-            # Category trong API
+            # Category 
             cat = row.get("displayCategory", "")
             if isinstance(cat, list):
                 cat = " ".join(cat)
