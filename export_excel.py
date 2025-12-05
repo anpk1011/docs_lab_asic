@@ -1,54 +1,132 @@
-import json
 import pandas as pd
+from openpyxl import load_workbook
+from openpyxl.chart import PieChart, BarChart, Reference
+from openpyxl.chart.label import DataLabelList
+from openpyxl.styles import Font
 
-INPUT_FILE = "defects.json"
-OUTPUT_FILE = "coverity_report.xlsx"
+INPUT = "coverity_report.xlsx"
+OUTPUT = "coverity_dashboard_optA.xlsx"
 
-records = []
+# -------------------------------------------------------
+# Beautify Category (does not affect detail dashboard)
+# -------------------------------------------------------
+def beautify(cat: str):
+    if not isinstance(cat, str):
+        return cat
+    return " ".join(w.capitalize() for w in str(cat).split())
 
-with open(INPUT_FILE, "r") as f:
-    for line in f:
-        if not line.strip():
-            continue
+# -------------------------------------------------------
+# Load input file
+# -------------------------------------------------------
+df_summary = pd.read_excel(INPUT, sheet_name="Summary")
+df_summary["Category"] = df_summary["Category"].apply(beautiful := beautify)
 
-        block = json.loads(line)
+wb = load_workbook(INPUT)
 
-        project = block["project"]
-        proj_key = block["project_key"]
-        view_id = int(block["view_id"])
-        snapshot = "first" if view_id == 10099 else "last"
+# Remove old dashboards
+for s in list(wb.sheetnames):
+    if s.startswith("Dashboard"):
+        del wb[s]
 
-        for row in block["rows"]:
-            rec = {}
-            
-            # Map
-            rec["CID"] = row.get("cid")
-            rec["Classification"] = row.get("classification")
-            rec["Component"] = row.get("displayComponent")
-            rec["Action"] = row.get("action")
+# -------------------------------------------------------
+# MAIN DASHBOARD — TWO PIE CHARTS (FIRST & LAST)
+# -------------------------------------------------------
+ws = wb.create_sheet("Dashboard_Main")
 
-            # Category 
-            cat = row.get("displayCategory", "")
-            if isinstance(cat, list):
-                cat = " ".join(cat)
-            rec["Category"] = " ".join(str(cat).split())
+df_old = df_summary[df_summary["Snapshot"] == "first"].groupby("Category")["Count"].sum().reset_index()
+df_last = df_summary[df_summary["Snapshot"] == "last"].groupby("Category")["Count"].sum().reset_index()
 
-            # Count
-            rec["Count"] = int(row.get("occurrenceCount", 0))
+# ------ MAIN TITLE OUTSIDE CHART (to avoid broken font) ------
+ws["A1"] = "TOTAL CATEGORY DISTRIBUTION (ALL PROJECTS)"
+ws["A1"].font = Font(bold=True, size=16)
 
-            rec["Project"] = project
-            rec["ProjectKey"] = proj_key
-            rec["Snapshot"] = snapshot
+# --- Write OLD table ---
+ws.append(["Category (FIRST)", "Count"])
+for row in df_old.itertuples(index=False):
+    ws.append(list(row))
 
-            records.append(rec)
+# --- PIE CHART FIRST ---
+pie1 = PieChart()
+labels = Reference(ws, min_col=1, min_row=2, max_row=1 + len(df_old))
+data = Reference(ws, min_col=2, min_row=1, max_row=1 + len(df_old))
+pie1.add_data(data, titles_from_data=True)
+pie1.set_categories(labels)
 
-df_raw = pd.DataFrame(records)
+# Do NOT set chart.title → prevents font distortion!
+ws.add_chart(pie1, "E3")
 
-# Summary for charts
-df_summary = df_raw.groupby(["Project", "Snapshot", "Category"])["Count"].sum().reset_index()
+# --- Write LAST table ---
+start = len(df_old) + 5
+ws.cell(row=start - 1, column=1, value="Category (LAST)").font = Font(bold=True)
+ws.cell(row=start - 1, column=2, value="Count").font = Font(bold=True)
 
-with pd.ExcelWriter(OUTPUT_FILE, engine="openpyxl") as writer:
-    df_raw.to_excel(writer, sheet_name="Defects_Raw", index=False)
-    df_summary.to_excel(writer, sheet_name="Summary", index=False)
+for row in df_last.itertuples(index=False):
+    ws.append(list(row))
 
-print("DONE → coverity_report.xlsx")
+# --- PIE CHART LAST ---
+pie2 = PieChart()
+labels2 = Reference(ws, min_col=1, min_row=start + 1, max_row=start + len(df_last))
+data2 = Reference(ws, min_col=2, min_row=start, max_row=start + len(df_last))
+pie2.add_data(data2, titles_from_data=True)
+pie2.set_categories(labels2)
+
+ws.add_chart(pie2, "E20")
+
+# -------------------------------------------------------
+# DETAIL DASHBOARDS — ONLY TOTAL FIRST vs LAST
+# -------------------------------------------------------
+projects = df_summary["Project"].unique()
+
+for proj in projects:
+    ws2 = wb.create_sheet(f"Dashboard_{proj}")
+
+    df_p = df_summary[df_summary["Project"] == proj]
+
+    total_first = int(df_p[df_p["Snapshot"] == "first"]["Count"].sum())
+    total_last = int(df_p[df_p["Snapshot"] == "last"]["Count"].sum())
+    delta_total = total_last - total_first
+
+    # ====== TITLE OUTSIDE CHART (fix font issue) ======
+    ws2["A1"] = f"Project: {proj} – Defect Summary"
+    ws2["A1"].font = Font(bold=True, size=16)
+
+    # KPI
+    ws2["A3"] = "Total FIRST"
+    ws2["B3"] = total_first
+    ws2["A4"] = "Total LAST"
+    ws2["B4"] = total_last
+    ws2["A5"] = "Delta"
+    ws2["B5"] = delta_total
+
+    # Table for chart
+    ws2.append([])
+    ws2.append(["Snapshot", "Count"])
+    ws2.append(["first", total_first])
+    ws2.append(["last", total_last])
+
+    # BAR CHART
+    bar = BarChart()
+    bar.type = "col"
+    bar.style = 10
+    bar.y_axis.title = "Total Defects"
+    bar.x_axis.title = "Snapshot"
+
+    data_ref = Reference(ws2, min_col=2, min_row=8, max_row=9)
+    cats_ref = Reference(ws2, min_col=1, min_row=8, max_row=9)
+
+    bar.add_data(data_ref, titles_from_data=False)
+    bar.set_categories(cats_ref)
+
+    # Show values
+    bar.dataLabels = DataLabelList()
+    bar.dataLabels.showVal = True
+
+    # DO NOT SET bar.title → avoid font bug
+
+    ws2.add_chart(bar, "E2")
+
+# -------------------------------------------------------
+# SAVE
+# -------------------------------------------------------
+wb.save(OUTPUT)
+print("DONE →", OUTPUT)
